@@ -36,9 +36,6 @@ a:hover{
 	border: 1px solid rgba(0,0,0,.1);
 	margin: 0 5px;
 }
-.card-overflow{
-	
-}
 .card-img{
 	border: none;
 	border-radius: 0;
@@ -58,6 +55,9 @@ a:hover{
 .small-card-description{
 	padding: 5px;
 }
+.badge-success{
+	margin-right: 2px;
+}
 .col-sm-3{
 	margin-bottom: 10px;
 }
@@ -72,4 +72,37 @@ a:hover{
 }
 .bg-lgrey{
 	background-color: LightGray;
+}
+.article-border{
+	height: auto;
+	border: 1px solid rgba(0,0,0,.1);
+}
+.article-img{
+	max-height: 300px;
+	max-width: 100%;
+}
+.article-head{
+	font-size: 1.1rem;
+	line-height: 1.45;
+}
+.article-content{
+	line-height: 1.43;
+}
+.comment h2 {
+	border-bottom:1px solid rgba(0,0,0,.15);
+	margin-bottom:25px;
+	font-weight:700;
+	font-size:1.2rem;
+	margin-bottom:27px;
+}
+.comment span {
+	border-bottom:1px solid rgba(0,0,0,.44);
+	display:inline-block;
+	padding-bottom:20px;
+	margin-bottom:-1px;
+}
+.btn-post{
+	width: 100px;
+	padding: 1px;
+	margin: 5px auto;
 }
