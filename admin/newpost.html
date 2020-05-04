@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
 
-  <title>Simple Sidebar - Start Bootstrap Template</title>
+  <title>Creating new post</title>
 
   <link href="../css/bootstrap.css" rel="stylesheet">
   <link href="../css/dashboard.css" rel="stylesheet">
@@ -22,15 +22,15 @@
       <div class="sidebar-heading text-light">
         <span style="font-weight: 700; font-size: 1.5rem"><img src="../images/logo.png" class="logo">Qaqnus</span></div>
       <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-success">
+        <a href="dashboard.html" class="list-group-item list-group-item-action bg-dark text-success">
           <i class="fa fa-area-chart fa-lg"></i> Dashboard
         </a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-info">
+        <a href="posts.html" class="list-group-item list-group-item-action bg-dark text-info">
           <i class="fa fa-newspaper-o fa-lg"></i> Posts <span class="badge badge-primary">1000</span></a>
         <a class="list-group-item list-group-item-action bg-dark text-warning">
           <i class="fa fa-folder-o fa-lg"></i> Categories</a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-secondary">
-          <i class="fa fa-group fa-lg"></i> Users <span class="badge badge-light">4</span>
+        <a href="users.html" class="list-group-item list-group-item-action bg-dark text-secondary">
+          <i class="fa fa-group fa-lg"></i> Users <span class="badge badge-light">1</span>
         </a>
       </div>
     </div>
@@ -60,7 +60,7 @@
                 <a class="dropdown-item">Status: <code class="badge bg-success text-light">Admin</code></a>
                 <a class="dropdown-item text-primary font-weight-bold" href="#">Profile</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item text-danger font-weight-bold" href="#">Sign out</a>
+                <a class="dropdown-item text-danger font-weight-bold" href="signin.html">Sign out</a>
               </div>
             </li>
           </ul>
@@ -68,23 +68,43 @@
       </nav>
 
       <div class="container-fluid">
-        <h1 class="mt-4">Simple Sidebar</h1>
-        <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
-        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
+        <div class="container">
+          <h2 class="mt-4 lead">Creating new post...</h2>
+          <div class="new-post p-2 pr-3">
+            <form>
+              <div class="form-group">
+                <input type="text" class="form-control" id="title" placeholder="Title">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" rows="5" id="description" placeholder="Description"></textarea>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" rows="15" id="content" placeholder="Content"></textarea>
+              </div>
+              <div class="form-group">
+                <label class="d-block">Category:</label>
+                <label class="radio-inline">
+                  <input type="radio" name="category" value="world"><kbd>World</kbd>
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="category" value="local"><kbd>Local</kbd>
+                </label>
+              </div>
+              <div class="form-group">
+                <label for="image">Image:</label>
+                <input type="file" class="form-control-file" id="image" accept="image/*"  placeholder="Select image">
+              </div>
+              <input type="text" id="sysdate" hidden>
+              <button class="btn btn-success" type="submit">Create Post</button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <script src="../js/jquery.js"></script>
   <script src="../js/bootstrap.bundle.js"></script>
-  <!-- Menu Toggle Script -->
-  <script>
-    $("#menu-toggle").click(function(e) {
-      e.preventDefault();
-      $("#wrapper").toggleClass("toggled");
-    });
-  </script>
-
+  <script src="../js/custom.js"></script>
 </body>
-
 </html>

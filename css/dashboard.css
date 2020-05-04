@@ -60,3 +60,11 @@ body {
   width: auto;
   height: 40px;
 }
+.posts-table{
+  height: 420px;
+  overflow: auto;
+}
+.new-post{
+  height: 470px;
+  overflow: auto;
+}
