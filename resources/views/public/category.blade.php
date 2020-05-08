@@ -21,7 +21,7 @@
                                         <p class="p-1">{{$article->description}}</p>
                                         <div class="text-right">
                                             <div class="news-date d-inline">
-                                                <p class="d-inline"><i class="fa fa-clock"></i>{{$article->created_at}}</p>
+                                                <small><i class="fa fa-calendar-check-o fa-lg"></i>{{$article->created_at}}</small>
                                             </div>
                                         </div>
                                     </div>

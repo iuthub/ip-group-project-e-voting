@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Article;
+use App\Comment;
 
 class PagesController extends Controller
 {
@@ -56,11 +59,35 @@ class PagesController extends Controller
      */
     public function article($id){
         $article = Article::find($id);
+        $sql = 'select comments.comment as comment, users.name as name from comments join users on comments.user_id=users.id where comments.post_id='.$id.' order by comments.created_at desc;';
+        $comments = DB::select($sql);
         $data = array(
             'title' => $article->title,
-            'article' => $article
+            'article' => $article,
+            'comments' => $comments,
         );
         return view('public.article')->with('data', $data);
+    }
+
+    /**
+     * Save comment 
+     * 
+     * @param int $id
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function comment(Request $request, $id){
+        $this->validate($request,[
+            'comment' => 'required',
+        ]);
+
+        $comment = new Comment;
+        $comment->comment = $request->input('comment');
+        $comment->user_id = Auth::id();
+        $comment->post_id = $id;
+        $comment->save();
+        
+        return redirect()->to('/article/'.$id)->with('success','Commented!');
     }
 
     public function contact(){

@@ -35,7 +35,7 @@
                                         <a href="/category/{{$data['articles'][0]->category}}"><span class="badge-success rounded">{{$data['articles'][0]->category}}</span></a>
                                     </div>
                                     <div class="news-date d-inline">
-                                        <p class="d-inline"><i class="fa fa-clock"></i>{{$data['articles'][0]->created_at}}</p>
+                                        <small><i class="fa fa-calendar-check-o fa-lg"></i>{{$data['articles'][0]->created_at}}</small>
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
                                         <a href="/category/{{$data['articles'][1]->category}}"><span class="badge-success rounded">{{$data['articles'][1]->category}}</span></a>
                                     </div>
                                     <div class="news-date d-inline">
-                                        <p class="d-inline"><i class="fa fa-clock"></i>{{$data['articles'][1]->created_at}}</p>
+                                        <small><i class="fa fa-calendar-check-o fa-lg"></i>{{$data['articles'][1]->created_at}}</small>
                                     </div>
                                 </div>
                             </div>
@@ -91,7 +91,7 @@
                                             <a href="/category/{{$article->category}}"><span class="badge-success rounded">{{$article->category}}</span></a>
                                         </div>
                                         <div class="news-date d-inline">
-                                            <p class="d-inline"><i class="fa fa-clock"></i>{{$article->created_at}}</p>
+                                            <small><i class="fa fa-calendar-check-o fa-lg"></i>{{$article->created_at}}</small>
                                        </div>
                                     </div>
                                 </div>

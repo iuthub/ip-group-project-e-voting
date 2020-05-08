@@ -34,8 +34,12 @@
                     <td>{{$post->created_at}}</td>
                     <td style="width:155px;">
                       <a href="/article/{{$post->id}}" class="btn btn-primary d-inline" target="_blank"><i class="fa fa-eye"></i></a>
-                      <a href="posts/update/" class="btn btn-success d-inline"><i class="fa fa-refresh"></i></a>
-                      <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                      <a href="/admin/posts/edit/{{$post->id}}" class="btn btn-success d-inline"><i class="fa fa-refresh"></i></a>
+                      <form action="/admin/posts/delete/{{$post->id}}" method="POST" class="m-0 p-0 d-inline">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                      </form>
                     </td>
                   </tr>
                   @endforeach

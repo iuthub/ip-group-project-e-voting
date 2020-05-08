@@ -9,9 +9,14 @@
 
   <title>{{$data['title']}}</title>
 
+  <!-- Styles -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 </head>
 
 <body>
@@ -20,9 +25,10 @@
     <!-- Sidebar -->
     <div class="bg-dark border-right" id="sidebar-wrapper">
       <div class="sidebar-heading text-light">
-        <span style="font-weight: 700; font-size: 1.5rem"><img src="{{asset('images/logo.png')}}" class="logo" alt="logo">Qaqnus</span></div>
+        <span style="font-weight: 700; font-size: 1.5rem"><img src="{{asset('images/logo.png')}}" class="logo" alt="logo">Qaqnus</span>
+      </div>
       <div class="list-group list-group-flush">
-        <a href="/admin/dashboard" class="list-group-item list-group-item-action bg-dark text-success">
+        <a href="/admin/dashboard" class="list-group-item list-group-item-action bg-dark text-success" style="border-top-width: 1px;">
           <i class="fa fa-area-chart fa-lg"></i> Dashboard
         </a>
         <a href="/admin/posts" class="list-group-item list-group-item-action bg-dark text-info">
@@ -53,14 +59,21 @@
               </form>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
-                Khurshidbek Kobilov
+              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user()->name }} <span class="caret"></span>
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item">Status: <code class="badge bg-success text-light">Admin</code></a>
                 <a class="dropdown-item text-primary font-weight-bold" href="#">Profile</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item text-danger font-weight-bold" href="/admin">Sign out</a>
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                         document.getElementById('logout-form').submit();">
+                  {{ __('Logout') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+                </form>
               </div>
             </li>
           </ul>
