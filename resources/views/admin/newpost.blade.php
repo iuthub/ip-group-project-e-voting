@@ -5,7 +5,7 @@
         <div class="container">
           <h2 class="mt-4 lead">Creating new post...</h2>
           <div class="new-post p-2 pr-3">
-            <form action="/admin/posts/save" method="POST">
+            <form action="/admin/posts/save" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
                 <input type="text" class="form-control" name="title" placeholder="Title">

@@ -102,10 +102,10 @@
 							<p><i class="fa fa-copyright"></i> Copyright. All Rights Reserved 2020, Qaqnus</p>
 						</div>
 						<div class="col-lg-6 col-sm-12 footer-icons">
-							<a href="#" class="sc-link"><i class="fa fa-facebook fa-lg"></i></a>
-							<a href="#" class="sc-link"><i class="fa fa-twitter  fa-lg"></i></a>
-							<a href="#" class="sc-link"><i class="fa fa-telegram  fa-lg"></i></a>
-							<a href="#" class="sc-link"><i class="fa fa-instagram  fa-lg"></i></a>
+							<a href="https://facebook.com/profile.php?id=100023246262179" class="sc-link"><i class="fa fa-facebook fa-lg"></i></a>
+							<a href="https://twitter.com/khurshid_kobilov" class="sc-link"><i class="fa fa-twitter  fa-lg"></i></a>
+							<a href="https://t.me/khurshid_kobilov" class="sc-link"><i class="fa fa-telegram  fa-lg"></i></a>
+							<a href="https://instagram.com/_khurshid_kobilov" class="sc-link"><i class="fa fa-instagram  fa-lg"></i></a>
 						</div>
 					</div>
 				</div>

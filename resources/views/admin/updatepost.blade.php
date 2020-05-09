@@ -5,7 +5,7 @@
         <div class="container">
           <h2 class="mt-4 lead">Editing post...</h2>
           <div class="new-post p-2 pr-3">
-            <form action="/admin/posts/update/{{$data['post']->id}}" method="POST">
+            <form action="/admin/posts/update/{{$data['post']->id}}" method="POST" enctype="multipart/form-data">
               @csrf
               @method('PUT')
               <div class="form-group">

@@ -22,7 +22,7 @@
               </thead>
               <tbody>
                 @if(count($data['posts'])>0)
-                @php $counter=1 @endphp
+                @php $counter=1; @endphp
                   @foreach ($data['posts'] as $post)
                   <tr class="table-secondary">
                     <td>{{$counter}}</td>
@@ -30,18 +30,27 @@
                     <td>{{$post->title}}</td>
                     <td>{{$post->description}}</td>
                     <td>{{$post->category}}</td>
-                    <td><img src="{{asset($post->img_path)}}" style="width:30px;height:30px;"></td>
+                    <td><img src="{{asset($post->img_path)}}" style="width:50px;height:40px;"></td>
                     <td>{{$post->created_at}}</td>
-                    <td style="width:155px;">
-                      <a href="/article/{{$post->id}}" class="btn btn-primary d-inline" target="_blank"><i class="fa fa-eye"></i></a>
-                      <a href="/admin/posts/edit/{{$post->id}}" class="btn btn-success d-inline"><i class="fa fa-refresh"></i></a>
-                      <form action="/admin/posts/delete/{{$post->id}}" method="POST" class="m-0 p-0 d-inline">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                      </form>
+                    <td>
+                      <div class="row mr-2 mt-2" style="width:155px;">
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                          <a href="/article/{{$post->id}}" data-toggle="tooltip" data-placement="top" title="View" class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i></a>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                          <a href="/admin/posts/edit/{{$post->id}}" data-toggle="tooltip" data-placement="top" title="Edit" class="btn btn-success"><i class="fa fa-refresh"></i></a>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                          <form action="/admin/posts/delete/{{$post->id}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger"  data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                          </form>
+                        </div>
+                      </div>
                     </td>
                   </tr>
+                  @php $counter++; @endphp
                   @endforeach
                 @else
                   <h2>No Posts Yet</h2>

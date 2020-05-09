@@ -61,7 +61,7 @@ class LoginController extends Controller
                 return redirect('/');
             }
         }else{
-            return redirect('/admin')->with('error','Email-Address or Password Are Wrong.');
+            return redirect('/')->with('error','Email-Address or Password Are Wrong.');
         }
           
     }

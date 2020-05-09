@@ -31,7 +31,7 @@ class PagesController extends Controller
     public function allnews(){
         $data = array(
             'title' => 'All news',
-            'articles' => Article::orderBy('created_at', 'DESC')->paginate(2)
+            'articles' => Article::orderBy('created_at', 'DESC')->paginate(10)
         );
         return view('public.allnews')->with('data', $data);
     }
@@ -43,7 +43,7 @@ class PagesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function category($category){
-        $articles =Article::orderBy('created_at', 'DESC')->where('category', $category)->paginate(2);
+        $articles =Article::orderBy('created_at', 'DESC')->where('category', $category)->paginate(10);
         $data = array(
             'title' => $category.' news',
             'articles' => $articles
@@ -90,13 +90,48 @@ class PagesController extends Controller
         return redirect()->to('/article/'.$id)->with('success','Commented!');
     }
 
+    /**
+     * Open contact page 
+     * 
+     * @return \Illuminate\Http\Response
+     */
     public function contact(){
         $data['title'] = 'Contact us - Qaqnus.uz support';
         return view('public.contact')->with('data', $data);
     }
 
+    /**
+     * Open about page 
+     * 
+     * @return \Illuminate\Http\Response
+     */
     public function about(){
         $data['title'] = 'About us - Qaqnus.uz team';
         return view('public.about')->with('data', $data);
+    }
+
+    /**
+     * Save comment 
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function sendMail(Request $request){
+        $this->validate($request,[
+            'name' => 'required',
+            'email' => 'required|email',
+            'subject' => 'required',
+            'message' => 'required'
+        ]);
+        $headers =  'MIME-Version: 1.0' . "\r\n"; 
+        $headers .= 'From ' . $request->input('email') . "\r\n";
+        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n"; 
+        $to = 'info.qaqnus@gmail.com';
+        if(mail($to, $request->input('subject'), $request->input('message'), $headers)){
+            return redirect()->back()->with('success', 'Message sent!');
+        }
+        else{
+            return redirect()->back()->with('error', 'Message not sent!');
+        }
     }
 }

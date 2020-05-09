@@ -30,18 +30,19 @@
                         <div class="mb-4 email-section">
                             <h3>Email us</h3>
                         </div>
-                        <form>
+                        <form action="/mail" method="POST">
+                            @csrf
                             <div class="form-group">
-                              <input type="text" class="form-control" id="contact-name" placeholder="Name" required>
+                              <input type="text" class="form-control" name="name" placeholder="Name" required>
                             </div>
                             <div class="form-group">
-                              <input type="text" class="form-control" id="contact-email" placeholder="Email" required>
+                              <input type="text" class="form-control" name="email" placeholder="Email" required>
                             </div>
                             <div class="form-group">
-                              <input type="text" class="form-control" id="contact-subject" placeholder="Subject" required>
+                              <input type="text" class="form-control" name="subject" placeholder="Subject" required>
                             </div>
                             <div class="form-group">
-                              <textarea class="form-control" rows="5" id="comment" placeholder="Message" required></textarea>
+                              <textarea class="form-control" rows="5" name="message" placeholder="Message" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-success font-weight-bold" disabled>Send request</button>
                         </form>

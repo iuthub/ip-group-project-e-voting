@@ -19,27 +19,23 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 </head>
 <body class="text-center">
-  @include('include.messages')
   <form class="form-signin" action="{{ route('login') }}" method="POST">
     @csrf
+    @include('include.messages')
     <img class="mb-4" src="../images/logo.png" alt="qaqnus-logo" width="72" height="72">
     <h1 class="h3 mb-3 font-weight-normal">Administrator</h1>
     <label for="inputEmail" class="sr-only">Username</label>
-    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-    @error('email')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-    @enderror
+    <input id="email" type="email" class="form-control" name="email" required autocomplete="email" autofocus>
+    
     <label for="inputPassword" class="sr-only">Password</label>
-    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-    @error('password')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-    @enderror
+    <input id="password" type="password" class="form-control" name="password" required autocomplete="current-password">
+    
     <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
     <p class="mt-5 mb-3 text-muted"><i class="fa fa-copyright"></i> Qaqnus.uz 2020</p>
   </form>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+  <script src="{{ asset('js/custom.js') }}"></script>
 </body>
 </html>
