@@ -7,7 +7,7 @@
             <a href="users/new/" class="btn btn-primary"><i class="fa fa-edit"></i>Create User</a>
           </div>
           <div class="posts-table">
-            <table class="table table-hover table-responsive-lg">
+            <table class="table table-hover table-responsive-lg" id="search_flag">
               <thead class="thead-dark">
                 <tr>
                   <th>#</th>

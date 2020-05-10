@@ -52,8 +52,7 @@
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item">
               <form class="form-inline ml-lg-2 mr-lg-2 search">
-                <input class="form-control search" type="text" placeholder="Search">
-                <button class="btn rounded-circle" type="button"><i class="fa fa-search text-primary"></i></button>
+                <input class="form-control search" type="search" name="search" id="search" placeholder="Search">
               </form>
             </li>
             <li class="nav-item dropdown">

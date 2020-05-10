@@ -4,7 +4,7 @@
     <div class="container-fluid mt-3">
         <div class="container">
           <div class="posts-table">
-            <table class="table table-hover table-responsive-lg">
+            <table class="table table-hover table-responsive-lg" id="search_flag">
               <thead class="thead-dark">
                 <tr>
                   <th>#</th>
