@@ -22,7 +22,7 @@
                         <div class="col-sm-6" style="margin-bottom: 15px;">
                             <div class="card rounded shadow bg-light">
                                 <div class="p-0">
-                                    <a href="/article/{{$data['articles'][0]->id}}"><img src="{{asset($data['articles'][0]->img_path)}}" class="card-img"></a>
+                                    <a href="/article/{{$data['articles'][0]->id}}"><img src="/{{$data['articles'][0]->img_path}}" class="card-img"></a>
                                 </div>
                                 <div class="p-3">
                                     <div class="card-title">
@@ -50,7 +50,7 @@
                         <div class="col-sm-6">
                             <div class="card rounded shadow bg-light">
                                 <div class="p-0">
-                                    <a href="/article/{{$data['articles'][1]->id}}"><img src="{{asset($data['articles'][1]->img_path)}}" class="card-img"></a>
+                                    <a href="/article/{{$data['articles'][1]->id}}"><img src="/{{$data['articles'][1]->img_path}}" class="card-img"></a>
                                 </div>
                                 <div class="p-3">
                                     <div class="card-title">
@@ -89,7 +89,7 @@
                         @for ($i = 2; $i < $count; $i++)
                         <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
                             <div class="small-card rounded shadow bg-light">
-                                <a href="/article/{{$data['articles'][$i]->id}}"><img src="{{asset($data['articles'][$i]->img_path)}}" class="small-card-img"></a>
+                                <a href="/article/{{$data['articles'][$i]->id}}"><img src="/{{$data['articles'][$i]->img_path}}" class="small-card-img"></a>
                                 <div class="small-card-description card-overflow">
                                     <a href="/article/{{$data['articles'][$i]->id}}"><h4>{{$data['articles'][$i]->title}}</h4></a>
                                     <p class="p-1">{{$data['articles'][$i]->description}}</p>

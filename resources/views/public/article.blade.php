@@ -20,7 +20,7 @@
                     <h4 class="article-head text-justify font-italic">{{$data['article']->description}}</h4>
                 </div>
                 <div class="m-4 p-2 text-center">
-                    <img src="{{asset($data['article']->img_path)}}" class="article-img rounded">
+                    <img src="/{{$data['article']->img_path}}" class="article-img rounded">
                 </div>
                 <div class="mt-1 ml-lg-5 mr-lg-5">
                     <p class="text-justify article-content">{{$data['article']->content}}</p>

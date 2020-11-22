@@ -15,7 +15,7 @@
                         @foreach ($data['articles'] as $article)
                             <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
                                 <div class="small-card rounded shadow bg-light">
-                                    <a href="/article/{{$article->id}}"><img src="{{asset($article->img_path)}}" class="small-card-img"></a>
+                                    <a href="/article/{{$article->id}}"><img src="/{{$article->img_path}}" class="small-card-img"></a>
                                     <div class="small-card-description card-overflow">
                                         <a href="/article/{{$article->id}}"><h4>{{$article->title}}</h4></a>
                                         <p class="p-1">{{$article->description}}</p>

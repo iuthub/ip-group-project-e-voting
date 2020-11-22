@@ -9,6 +9,8 @@ use App\Comment;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
+const BANK_PATH = "uploads/images/";
+
 class AdminController extends Controller
 {
     /**
@@ -24,7 +26,7 @@ class AdminController extends Controller
     public function signin(){
         return view('admin.signin');
     }
-    
+
     /**
      * Show the application dashboard.
      *
@@ -85,8 +87,8 @@ class AdminController extends Controller
     }
 
     /**
-     * Save post 
-     * 
+     * Save post
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
@@ -99,32 +101,26 @@ class AdminController extends Controller
             'image' => 'required|image|max:1024'
         ]);
 
-        //filename with extension
-        $filenameWithExt = $request->file('image')->getClientOriginalName();
-        //filename
-        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        //extension
-        $extension = $request->file('image')->getClientOriginalExtension();
-        //filename to store
-        $fileToStore = $filename.'_'.time().'.'.$extension;
-        //image path
-        $img_path = 'storage/uploads/'.$fileToStore;
-        //upload image
-        $path = $request->file('image')->storeAs('public/uploads', $fileToStore);
-
         $article = new Article;
         $article->title = $request->input('title');
         $article->description = $request->input('description');
         $article->content = $request->input('content');
         $article->category = $request->input('category');
-        $article->img_path = $img_path;
+        if($request->file('image')){
+            if (is_file($article->img_path)) {
+                unlink(public_path('/').$article->img_path);
+            }
+            $fileName = time().'.'.$request->file('image')->getClientOriginalExtension();
+            $article->img_path = BANK_PATH.$fileName;
+            $request->file('image')->move(BANK_PATH,$fileName);
+        }
         $article->save();
         return redirect('/admin/posts')->with('success', 'Post created!');
     }
 
     /**
-     * Update post 
-     * 
+     * Update post
+     *
      * @param int $id
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
@@ -138,25 +134,19 @@ class AdminController extends Controller
             'image' => 'required|image|max:1024'
         ]);
 
-        //filename with extension
-        $filenameWithExt = $request->file('image')->getClientOriginalName();
-        //filename
-        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        //extension
-        $extension = $request->file('image')->getClientOriginalExtension();
-        //filename to store
-        $fileToStore = $filename.'_'.time().'.'.$extension;
-        //image path
-        $img_path = 'storage/uploads/'.$fileToStore;
-        //upload image
-        $path = $request->file('image')->storeAs('public/uploads', $fileToStore);
-
         $article = Article::find($id);
         $article->title = $request->input('title');
         $article->description = $request->input('description');
         $article->content = $request->input('content');
         $article->category = $request->input('category');
-        $article->img_path = $img_path;
+        if($request->file('image')){
+            if (is_file($article->img_path)) {
+                unlink(public_path('/').$article->img_path);
+            }
+            $fileName = time().'.'.$request->file('image')->getClientOriginalExtension();
+            $article->img_path = BANK_PATH.$fileName;
+            $request->file('image')->move(BANK_PATH,$fileName);
+        }
         $article->save();
         return redirect('/admin/posts')->with('success', 'Post updated!');
     }
@@ -199,8 +189,8 @@ class AdminController extends Controller
     }
 
     /**
-     * Save post 
-     * 
+     * Save post
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
@@ -248,8 +238,8 @@ class AdminController extends Controller
     }
 
     /**
-     * Update post 
-     * 
+     * Update post
+     *
      * @param int $id
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
@@ -311,8 +301,8 @@ class AdminController extends Controller
     }
 
     /**
-     * Update post 
-     * 
+     * Update post
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
